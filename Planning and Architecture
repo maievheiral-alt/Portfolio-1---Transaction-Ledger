@@ -9,7 +9,7 @@ PLANNING:
   -Every successful financial operation must create a transaction record
   -The stored account balance must always equal the net total of its completed transaction history, including any opening balance
   -Money must not disappear or be duplicated when moving between accounts
-4) Database Design:
+3) Database Design:
   -Two tables: Account and Transaction
   -Account has a one-to-many relationship to Transaction
   -The transaction history should be append-only, and exists as the authoritative record
