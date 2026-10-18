@@ -5,10 +5,18 @@ PLANNING:
   -Deposit amounts must be greater than 0
   -An account cannot withdraw more than the available balance
   -Balances cannot become negative
-  -Completed transactions cannot be silently deleted or rewritten
+  -Completed transaction records cannot be modified or deleted through normal application operations
+  -Every successful financial operation must create a transaction record
+  -The stored account balance must always equal the net total of its completed transaction history, including any opening balance
   -Money must not disappear or be duplicated when moving between accounts
 3) Technology Choices:
   -Java 26: Current version of Java that is available which has been around for at least 6 months as of project start to ensure stability
   -MySQL: Version of SQL that I am familiar with through my studies, allows for persistent data storage
   -Spring Boot 4.1: Runtime environment
   -Hibernate: Manages data mapping and translation to SQL
+5) Database Design:
+  -Two tables: Account and Transaction
+  -Account has a one-to-many relationship to Transaction
+  -The transaction history should be append-only, and exists as the authoritative record
+  -Account will hold a stored account balance that is used for efficient reads
+  -Reconciliation will rely on the transaction record to identify inconsistencies
