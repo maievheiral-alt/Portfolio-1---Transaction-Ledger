@@ -9,12 +9,7 @@ PLANNING:
   -Every successful financial operation must create a transaction record
   -The stored account balance must always equal the net total of its completed transaction history, including any opening balance
   -Money must not disappear or be duplicated when moving between accounts
-3) Technology Choices:
-  -Java 26: Current version of Java that is available which has been around for at least 6 months as of project start to ensure stability
-  -MySQL: Version of SQL that I am familiar with through my studies, allows for persistent data storage
-  -Spring Boot 4.1: Runtime environment
-  -Hibernate: Manages data mapping and translation to SQL
-5) Database Design:
+4) Database Design:
   -Two tables: Account and Transaction
   -Account has a one-to-many relationship to Transaction
   -The transaction history should be append-only, and exists as the authoritative record
